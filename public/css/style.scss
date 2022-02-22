@@ -15,8 +15,13 @@
 
 
 html {
+    
     .mb-1 {
         margin-bottom: 1rem;
+    }
+
+    .mb-2 {
+        margin-bottom: 2rem;
     }
 
     .mb-3 {
@@ -26,7 +31,31 @@ html {
     .mb-5 {
         margin-bottom: 5rem !important;
     }
+
+    .pl-0 {
+        padding-left: 0 !important;
+    }
+
+    .pr-0 {
+        padding-right: 0 !important;
+    }
     body {
+        input {
+            &.pass {
+                border-bottom-color: $mainBlue !important;
+                &+label {
+                    color: $mainBlue !important;
+                }
+            }
+
+            &.fail {
+                border-bottom-color: #ff0000 !important;
+                &+label {
+                    color: #ff0000 !important;
+                }
+            }
+        }
+        
         input:focus {
             border-bottom: 1px solid $mainBlue !important;
             box-shadow: 0 1px 0 0 $mainBlue !important; 
@@ -34,6 +63,20 @@ html {
 
         input:focus + label {
             color: $mainBlue !important;
+        }
+
+        input::placeholder {
+            font-size: .75rem; 
+        }
+        .preloader {
+            z-index: 10000;
+            position: absolute;
+            display: grid;
+            place-content: center;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
     }
 }

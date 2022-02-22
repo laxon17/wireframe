@@ -17,12 +17,40 @@ html .mb-1 {
   margin-bottom: 1rem;
 }
 
+html .mb-2 {
+  margin-bottom: 2rem;
+}
+
 html .mb-3 {
   margin-bottom: 3rem;
 }
 
 html .mb-5 {
   margin-bottom: 5rem !important;
+}
+
+html .pl-0 {
+  padding-left: 0 !important;
+}
+
+html .pr-0 {
+  padding-right: 0 !important;
+}
+
+html body input.pass {
+  border-bottom-color: #42a5f5 !important;
+}
+
+html body input.pass + label {
+  color: #42a5f5 !important;
+}
+
+html body input.fail {
+  border-bottom-color: #ff0000 !important;
+}
+
+html body input.fail + label {
+  color: #ff0000 !important;
 }
 
 html body input:focus {
@@ -33,5 +61,33 @@ html body input:focus {
 
 html body input:focus + label {
   color: #42a5f5 !important;
+}
+
+html body input::-webkit-input-placeholder {
+  font-size: .75rem;
+}
+
+html body input:-ms-input-placeholder {
+  font-size: .75rem;
+}
+
+html body input::-ms-input-placeholder {
+  font-size: .75rem;
+}
+
+html body input::placeholder {
+  font-size: .75rem;
+}
+
+html body .preloader {
+  z-index: 10000;
+  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 /*# sourceMappingURL=style.css.map */

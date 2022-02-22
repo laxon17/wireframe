@@ -29,7 +29,7 @@
             {
                 Utilities::dieDump($exception->getMessage());
             }
-        } 
+        }
 
         public function insertRecords($table, $parameters)
         {
@@ -47,7 +47,8 @@
                 $statement->execute($parameters);
             } 
             
-            catch (PDOException $exception) {
+            catch (PDOException $exception) 
+            {
                 Utilities::dieDump($exception->getMessage());
             }
         }  
