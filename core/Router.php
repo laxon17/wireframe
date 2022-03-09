@@ -18,12 +18,12 @@
 
         public function GET($uri, $controller) 
         {
-            $this->routes['GET'][$uri] = 'controllers/' . $controller . '.php';
+            $this->routes['GET'][$uri] = $controller . '.php';
         }
 
         public function POST($uri, $controller) 
         {
-            $this->routes['POST'][$uri] = 'controllers/' . $controller . '.php';
+            $this->routes['POST'][$uri] =  $controller . '.php';
         }
 
         public function direct($uri, $method)
@@ -33,6 +33,6 @@
                 return $this->routes[$method][$uri];
             }
             
-            throw new InvalidArgumentException("No routes defined for \"{$uri}\"  URI!");
+            else Utilities::redirect('/index');
         }   
     }

@@ -1,5 +1,5 @@
 <?php
     
-    $pageTitle = 'Home'; 
+    $page_title = 'Home'; 
 
     require 'resources/views/pages/index.view.php';

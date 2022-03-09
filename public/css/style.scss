@@ -7,14 +7,16 @@
     &:not(i.material-icons) {
         font-family: 'Poppins', sans-serif;
     }
-    a {
+    i, a {
         cursor: pointer;
     }
 }
 
-
-
 html {
+    overflow-x: hidden;
+    .m-a {
+        margin: 0 auto !important;
+    }
     
     .mb-1 {
         margin-bottom: 1rem;
@@ -32,19 +34,167 @@ html {
         margin-bottom: 5rem !important;
     }
 
+    .p-0 {
+        padding: 0 !important; 
+    }
+
+    .p-1 {
+        padding: 1rem !important;
+    }
+    
+
+    .p-3 {
+        padding: 3rem !important;
+    }
+
+    .p-5 {
+        padding: 5rem !important;
+    }
+
+    .pt-1 {
+        padding-top: 1rem !important; 
+    }
+
+    .pt-2 {
+        padding-top: 2rem !important;
+    }
+
+    .pt-5 {
+        padding-top: 5rem !important;
+    }
+
     .pl-0 {
         padding-left: 0 !important;
+    }
+
+    .pl-1 {
+        padding-left: 1rem !important;
+    }
+
+    .pl-2 {
+        padding-left: 2rem !important;
     }
 
     .pr-0 {
         padding-right: 0 !important;
     }
+
+    .mr-1 {
+        margin-right: 1rem !important;
+    }
+    
+    .blue {
+        &.lighten-7 {
+            background-color: rgb(255, 255, 255) !important;
+        }
+    }
+
+    blockquote {
+        text-transform: uppercase;
+        border-left-color: $mainBlue !important;
+    }
+
     body {
+        overflow-x: hidden;
+        .ms {
+            margin-bottom: 25rem !important;
+        }
+        .user-profile {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        position: relative;
+        textarea {
+            &#messageBody {
+                height: 300px;
+            }
+            &:focus {
+                border-bottom-color: $mainBlue !important;
+                box-shadow: 0 1px 0 0 $mainBlue !important;
+                & + label {
+                    color: $mainBlue !important;
+                }
+            }
+        }
+        .input-field .prefix.active {
+            color: $mainBlue;
+        }
+
+        .reply-button {
+            cursor: pointer;
+        }
+        
+        .parent-comment {
+            position: relative;
+            box-shadow: 0 0 2px 0 grey;
+            padding: 1rem .5rem;
+            .row {
+                .reply-comment {
+                    position: relative;
+                    padding: 1rem;
+                    box-shadow: 0 0 2px 0 grey;
+                    .delete-reply {
+                        position: absolute;
+                        top: 20px;
+                        right: 20px;
+                    }
+                }
+            }
+            .delete-comment {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+            }
+        }
+        .prof-pic {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .page-name {
+            text-transform: capitalize;
+        }
+        .info-cards {
+            margin-bottom: 3rem;
+            .stats-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                padding: 2rem !important;
+                margin-bottom: 3rem;
+                border-radius: 10px;
+                transition: all 300ms ease !important;
+                box-shadow: 0 0 3px 0 $mainBlue !important;
+                i {
+                    margin-bottom: 1rem;
+                }
+                p {
+                    margin-bottom: 1rem;
+                    text-transform: uppercase;
+                    &:first-of-type {
+                        font-size: 2rem;
+                    }
+                }
+                &:hover {
+                    cursor: help;
+                    box-shadow: 0 0 10px 0 $mainBlue !important;
+                }
+            }
+        }
         input {
             &.pass {
                 border-bottom-color: $mainBlue !important;
                 &+label {
                     color: $mainBlue !important;
+                }
+            }
+
+            &[type="radio"]:checked {
+                &+ span::after {
+                    border: 2px solid $mainBlue;
+                    background-color: $mainBlue !important;
                 }
             }
 
@@ -55,28 +205,137 @@ html {
                 }
             }
         }
-        
-        input:focus {
-            border-bottom: 1px solid $mainBlue !important;
-            box-shadow: 0 1px 0 0 $mainBlue !important; 
-        }
 
-        input:focus + label {
-            color: $mainBlue !important;
-        }
-
-        input::placeholder {
-            font-size: .75rem; 
-        }
-        .preloader {
-            z-index: 10000;
-            position: absolute;
+        .verify-container {
+            margin: 150px auto;
+            padding: 3em;
+            border: 2px solid $mainBlue;
+            box-shadow: 0 0 7px 0 #000;
             display: grid;
             place-content: center;
+            justify-items: center;
+            & > img {
+                width: 20%;
+            }
+            h3 {
+                font-size: 1.5rem;
+            }
+            h4 {
+                font-size: 1rem;
+            }
+        }
+        
+        #userInfo {
+            #profilePictureContainer {
+                margin-bottom: 5rem;
+                text-align: center;
+                #profileImage {
+                    margin-bottom: 1rem;
+                    border-radius: 50%;
+                    width: 200px;
+                    height: 200px;
+                    overflow: hidden;
+                    img {
+                        width: 100%;
+                        cursor: pointer;
+                    }
+                }
+            }
+            #userBio {
+                background-color: rgb(238, 248, 255);
+                padding: 3rem 1.5rem;
+                border-radius: 10px;
+            }
+        }
+        
+        .post-list {
+            padding: 1.5rem 2rem;
+        }
+        
+        .recent-post {
+            margin-bottom: 1rem;
+            p {
+                color: grey;
+                font-size: .85rem;
+            }
+        }
+
+        input[type="checkbox"]:checked {
+            & + span {
+                &:not(.lever) {
+                    &:before {
+                        border-right: 2px solid $mainBlue;
+                        border-bottom: 2px solid $mainBlue;
+                    }
+                }
+            }     
+        }
+
+        #textarea1 {
+            height: 300px;
+            &:focus {
+                border-bottom-color: $mainBlue !important;
+                box-shadow: 0 1px 0 0 $mainBlue !important;
+                & + label {
+                    color: $mainBlue !important;
+                }
+            }
+        }
+        
+        input {
+            &::placeholder {
+                font-size: .75rem; 
+            }
+            &:focus {
+                border-bottom: 1px solid $mainBlue !important;
+                box-shadow: 0 1px 0 0 $mainBlue !important; 
+                & + label {
+                    color: $mainBlue !important;
+                }
+            }
+        }
+        
+        .preloader {
+            z-index: 1000000000;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
+            .preloader-wrapper {
+                position: absolute;
+                top: 50vh;
+            }
+        }
+        .parallax-container {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cross-section {
+            width: 100%;
+            height: 25vh;
+            clip-path: polygon(0 0, 100% 0, 100% 15% , 0 100%);
+            background-color: rgb(241, 248, 255);
+        }
+        .opposite {
+            clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 100% 15%);
+        }
+        footer {
+            .blog-info {
+                li {
+                    padding-left: .8rem;
+                    margin-bottom: .5rem;
+                    a {
+                        color: #fff;
+                        font-size: 1.1rem;
+                    }
+                }
+            }
         }
     }
 }

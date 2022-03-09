@@ -4,7 +4,9 @@
     {
         public static function getUri()
         {
-            return trim($_SERVER['REQUEST_URI'], '/');
+            $uri = trim($_SERVER['REQUEST_URI'], '/');
+            if(strpos($uri, '?')) return substr($uri, 0, strpos($uri, '?'));
+            return $uri;
         }
 
         public static function getMethod()

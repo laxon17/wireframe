@@ -1,1 +1,22 @@
-/* No CSS *//*# sourceMappingURL=responsive.css.map */
+@media screen and (max-width: 993px) {
+  #profileImage {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .comment-field {
+    width: 100% !important;
+  }
+  .comment-field form {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .comment-field form .input-field {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */

@@ -4,7 +4,7 @@
         <h1>Register</h1>
     </div>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="container">
             <div class="container">
                 <form action="/register" method="POST" id="registrationForm">

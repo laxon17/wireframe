@@ -4,7 +4,7 @@
         <h1>Log In</h1>
     </div>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="container">
             <div class="container">
                 <form action="/login" method="POST" id="loginForm">
@@ -29,9 +29,6 @@
                         <?php else : ?>
                             <span></span>
                         <?php endif ?>
-                    </div>
-                    <div class="row left-align mb-3 grey-text text-lighten-1">
-                        Forgot your password? <a href="/register" class="link">Reset</a>
                     </div>
                     <div class="row mb-3 center">
                         <button class="btn btn-large blue lighten-1 waves-effect waves-light" name="login_user" id="loginButton">Log In</button>

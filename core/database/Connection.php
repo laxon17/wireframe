@@ -2,17 +2,20 @@
 
     class Connection
     {
-        public static function Connect($cfg) {
+        public static function Connect($cfg) 
+        {
             try 
             {
-                return new PDO(
+                return new PDO
+                (
                     'mysql:host=' . $cfg['host'] . ';'.
                     'dbname=' . $cfg['dbname'],
                     $cfg['username'],
                     $cfg['password']
                 );
             } 
-            catch (PDOException $exception) {
+            catch (PDOException $exception) 
+            {
                 Utilities::dieDump($exception->getMessage());
             }
         }

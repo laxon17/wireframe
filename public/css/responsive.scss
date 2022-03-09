@@ -1,0 +1,18 @@
+@media screen and(max-width: 993px) {
+    #profileImage {
+        margin: 0 auto;
+    }
+}
+
+@media screen and(max-width: 500px) {
+    .comment-field {
+        width: 100% !important;
+        form {
+            width: 100%;
+            flex-direction: column;
+            .input-field {
+                width: 100%;
+            }
+        }
+    }
+}
