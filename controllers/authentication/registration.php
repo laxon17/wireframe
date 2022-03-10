@@ -72,6 +72,33 @@
 
             $mail = new PHPMailer(true);
 
+            try
+            {
+                $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      
+                $mail->isSMTP();                                          
+                $mail->Host = 'smtp.gmail.com';                   
+                $mail->SMTPAuth = true;                                   
+                $mail->Username = 'wireframe17@gmail.com';                
+                $mail->Password = 'Wireframe00000';                       
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
+                $mail->Port = 465;
+
+                $mail->setFrom('no-reply@wireframe.com');
+                $mail->addAddress($user_mail);
+
+                $mail->isHTML(true); 
+                $mail->Subject = 'WireFrame - Account Verification';
+                $mail->Body    = "Please verify your account by clicking the link: <a href=\"http://wireframe.codeus.me/verify?token=$verification_token\">Verify</a>";
+                $mail->AltBody = "Please verify your account by clicking the link: http://wireframe.codeus.me/verify?token=$verification_token";
             
+                $mail->send();
+
+                Utilities::Redirect('/verify'); 
+
+            } 
+            catch (Exception $exception) 
+            {
+                Utilities::dieDump($exception->getMessage());
+            }
         }
     }

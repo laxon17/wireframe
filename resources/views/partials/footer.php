@@ -36,7 +36,7 @@
                             <div class="col s12 m6 l6 center-align">
                                 <div class="row">
                                     <h2 class="flow-text">CONNECT WITH US</h2>
-                                    <a href="assets/settings/feed.rss"><img src="https://img.icons8.com/color/48/000000/rss.png"/></a>
+                                    <a href="resources/assets/feed.rss"><img src="https://img.icons8.com/color/48/000000/rss.png"/></a>
                                     <a target="_blank" href="https://www.facebook.com"><img src="https://img.icons8.com/color/48/000000/facebook.png"/></a>
                                     <a target="_blank" href="https://www.twitter.com"><img src="https://img.icons8.com/color/48/000000/twitter.png"/></a>
                                     <a target="_blank" href="https://www.linkedin.com"><img src="https://img.icons8.com/color/48/000000/linkedin.png"/></a>
@@ -52,10 +52,10 @@
                                 <h2 class="white-text flow-text">SITE ASSETS</h2>
                                 <ul class="blog-info">
                                     <li>
-                                        <a class="grey-text text-lighten-4" target="_blank" href="./documentation.pdf">Documentation</a>
+                                        <a class="grey-text text-lighten-4" target="_blank" href="resources/assets/documentation.pdf">Documentation</a>
                                     </li>
-                                    <li><a class="grey-text text-lighten-4" target="_blank" href="./documentation.pdf">Sitemap</a></li>
-                                    <li><a class="grey-text text-lighten-4" target="_blank" href="./documentation.pdf">Script.js</a></li>
+                                    <li><a class="grey-text text-lighten-4" target="_blank" href="resources/assets/sitemap.xml">Sitemap</a></li>
+                                    <li><a class="grey-text text-lighten-4" target="_blank" href="public/js/main.js">Script.js</a></li>
                                 </ul>
                             </div>
                         </div>

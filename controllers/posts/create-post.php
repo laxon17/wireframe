@@ -74,4 +74,4 @@
 
             Utilities::redirect('/profile?username=' . $_SESSION['username']);
         }
-    } 
+    }

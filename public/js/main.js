@@ -331,7 +331,6 @@
         }
     }
 
-    
 // END OF AJAX FOR WRITING DATA FROM DATABASE
 
     function pageLoader() {
