@@ -10,7 +10,8 @@
         $post_title = $_POST['post_title'];
         $post_body = $_POST['post_body'];
         $image_path = $_FILES['image_path']['name'];
-        $target = 'public/img/covers/' . basename($image_path);
+        $image_name = uniqid() . '_' . time();
+        $target = '/var/www/wireframe.codeus.me/public/img/covers/' . $image_name;
         $post_category = []; 
         $values = [];
         $errors = [];     
@@ -58,7 +59,7 @@
             else $post_id = $last_post[0]->PostId;
 
             $database->insertRecords('CoverImages', [
-                'CoverPath' => $image_path,
+                'CoverPath' => $image_name,
                 'PostId' => $post_id
             ]);
 
