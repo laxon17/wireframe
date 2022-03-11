@@ -27,7 +27,7 @@
 
             session_start();
 
-            Utilities::redirect('/profile?username=' . $_SESSION['username']);
+            Utilities::redirect('/posts');
         }
         else Utilities::Redirect('/index');
     }
