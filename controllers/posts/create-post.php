@@ -59,7 +59,7 @@
             else $post_id = $last_post[0]->PostId;
 
             $database->insertRecords('CoverImages', [
-                'CoverPath' => $image_path,
+                'CoverPath' => $image_name,
                 'PostId' => $post_id
             ]);
 
