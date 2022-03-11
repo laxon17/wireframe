@@ -12,8 +12,9 @@
         $decoded_json = json_decode($str_json, false);
         $role_id = $decoded_json->role_id;
         $user_id = $decoded_json->user_id;
-        Utilities::dieDump($role_id . ' - ' . $user_id);
+
         $database->updateRecord('Users', 'RoleId', $role_id, 'UserId', $user_id);
+        Utilities::redirect('/dashboard/users');
     }
     else 
     {
