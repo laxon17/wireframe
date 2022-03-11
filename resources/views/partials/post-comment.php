@@ -66,9 +66,8 @@
         <?php endif ?>
 
         <?php 
-            var_dump($parent_comment->PostId . ' - ' . $parent_comment->CommentId);
             $reply_comments = $database->selectReplies($parent_comment->PostId, $parent_comment->CommentId);
-            var_dump($reply_comments);
+            
             foreach($reply_comments as $reply_comment) :
         ?>
             <div class="row">     
@@ -79,7 +78,7 @@
                         </div>
                         <div class="col l6">
                             <a href="/profile?username=<?= $reply_comment->UserName ?>">
-                                <?= $reply_comment->FullName ?>
+                                <?= $reply_comment->FirstName . ' ' . $reply_comment->LastName  ?>
                             </a>
                             <br>
                             <small>
