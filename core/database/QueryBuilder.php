@@ -194,9 +194,7 @@
                 GROUP BY Comments.CommentId'
             ); 
 
-            var_dump($query);
-
-            try 
+            try
             {
                 $statement = $this->pdo->prepare($query);
                 $statement->bindParam(':post', $post_id);
