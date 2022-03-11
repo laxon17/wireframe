@@ -187,15 +187,14 @@
         public function selectReplies($post_id, $parent_id)
         {
             $query = sprintf(
-                'SELECT Users.UserId, CONCAT(Users.FirstName , " " , Users.LastName) AS \'FullName\', Users.UserName, Users.ProfilePicture, Comments.CommentId, Comments.ParentId, Comments.CommentBody, Comments.PostId, Comments.CreatedAt
-                FROM Users 
-                INNER JOIN Comments ON Users.UserId = Comments.UserId
-                WHERE Comments.PostId = \'%s\' AND Comments.ParentId = \'%s\'
-                GROUP BY Comments.CommentId',
+                'SELECT Users.UserId, Users.FirstName, Users.LastName, Users.UserName, Users.ProfilePicture, Comments.CommentId, Comments.ParentId, Comments.CommentBody, Comments.PostId, Comments.CreatedAt 
+                FROM Users INNER JOIN Comments ON Users.UserId = Comments.UserId 
+                WHERE Comments.PostId = %s AND Comments.ParentId = %s
+                GROUP BY Comments.CommentId, Users.UserId, Users.FirstName, Users.LastName, Users.UserName, Users.ProfilePicture, Comments.ParentId, Comments.CommentBody, Comments.PostId, Comments.CreatedAt',
                 $post_id,
                 $parent_id
             ); 
-            var_dump($query);
+
             try
             {
                 $statement = $this->pdo->prepare($query);
