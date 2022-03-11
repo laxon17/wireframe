@@ -1,6 +1,7 @@
 <table class="highlight striped centered">
     <thead>
         <tr>
+            <td class="center">UserId</td>
             <td class="center"></td>
             <td class="center">Username</td>
             <td class="center">Joined</td>
@@ -10,6 +11,7 @@
     <tbody>
         <?php foreach($users as $user) : ?>
             <tr>
+                <td><?= $user->UserId ?></td>
                 <td><img class="user-profile" src="/public/img/users/<?= $user->ProfilePicture ?>" alt="User"></td>
                 <td><?= $user->Username ?></td>
                 <td><?= $user->CreatedAt ?></td>
