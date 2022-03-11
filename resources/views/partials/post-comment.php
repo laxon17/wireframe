@@ -9,7 +9,7 @@
 
 <?php foreach($parent_comments as $parent_comment) : ?>
     <div class="row parent-comment mb-3">
-        <?php if($_SESSION['role'] === 1) : ?>
+        <?php if($_SESSION['role'] == 1) : ?>
             <a class="delete-comment" href="/delete-comment?comment_id=<?= $parent_comment->CommentId?>">
                 <i class="material-icons red-text">close</i>
             </a>
@@ -84,7 +84,7 @@
                                 <?= $reply_comment->CreatedAt ?>
                             </small>
                         </div>
-                        <?php if($_SESSION['role'] === 1) : ?>
+                        <?php if($_SESSION['role'] == 1) : ?>
                             <a class="delete-reply" href="/delete-comment?comment_id=<?= $reply_comment->CommentId?>">
                                 <i class="material-icons red-text">close</i>
                             </a>

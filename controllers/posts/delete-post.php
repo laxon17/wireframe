@@ -15,7 +15,7 @@
         $writer = $database->selectFilteredRecord('Posts', 'PostId', $id);
         $writer_id = $writer->UserId;
 
-        if($writer_id === $_SESSION['user_id'] || $_SESSION['role'] === 1) 
+        if($writer_id == $_SESSION['user_id'] || $_SESSION['role'] == 1) 
         {
             $cover = $database->selectFilteredRecord('CoverImages', 'PostId', $id);
             $database->deleteRecords('PostCategory', 'PostId', $id);

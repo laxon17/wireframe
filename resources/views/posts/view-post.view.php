@@ -8,9 +8,9 @@
             <?= 'Written by: ' . '<u>' . $writer->FirstName . ' ' . $writer->LastName . '</u>' . ' at: ' . $post->CreatedAt ?>
         </p>
         <div class="row">
-            <?php if($_SESSION['user_id'] === $post->UserId || $_SESSION['role'] === 1)  : ?>
+            <?php if($_SESSION['user_id'] == $post->UserId || $_SESSION['role'] == 1)  : ?>
                 <a class="btn btn-small red waves-effect" href="/delete-post?id=<?= $post->PostId ?>">DELETE POST</a>
-                <?php if($_SESSION['role'] !== 1 || $_SESSION['user_id'] === $post->UserId) : ?>
+                <?php if($_SESSION['role'] != 1 || $_SESSION['user_id'] == $post->UserId) : ?>
                     <a class="btn btn-small yellow darken-2 waves-effect" href="/edit-post?id=<?= $post->PostId ?>">EDIT POST</a>
                 <?php endif ?>
             <?php endif ?>

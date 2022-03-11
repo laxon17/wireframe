@@ -5,7 +5,7 @@
     session_start();
 
     if(empty($comment_id)) Utilities::redirect('/index');
-    else if($_SESSION['role'] === 1 || $writer->UserId === $_SESSION['user_id'])
+    else if($_SESSION['role'] == 1 || $writer->UserId == $_SESSION['user_id'])
     {
         $comment = $database->selectFilteredRecord('Comments', 'CommentId', $comment_id);
         $post_id = $comment->PostId;

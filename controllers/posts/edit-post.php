@@ -12,8 +12,8 @@
         $old_path = $_POST['old_path'];
 
         $new_path = $_FILES['new_path']['name'];
-
-        $target = 'public/img/covers/' . basename($new_path);
+        $image_name = uniqid() . '_' . time();
+        $target = 'public/img/covers/' . $image_name;
 
         $post_category = []; 
         $values = [];
@@ -51,7 +51,7 @@
             $database->updatePostBody($post_body, $post_id);
             
             if($new_path !== '') {
-                $database->updateRecord('CoverImages', 'CoverPath', $new_path, 'PostId', $post_id);
+                $database->updateRecord('CoverImages', 'CoverPath', $image_name, 'PostId', $post_id);
                 move_uploaded_file($_FILES['new_path']['tmp_name'], $target);
                 unlink('public/img/covers/' . $old_path);
             }

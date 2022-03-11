@@ -298,7 +298,6 @@
             {
                 Utilities::dieDump($exception->getMessage());
             }
-
         }
 
         public function updateAnswer($answer, $poll_id, $user_id)

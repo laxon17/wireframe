@@ -3,9 +3,9 @@
     $access_method = Request::getMethod();
     session_start();
 
-    if($access_method === 'GET' && isset($_SESSION['user_id']) && $_SESSION['role'] === 1) 
+    if($access_method === 'GET' && isset($_SESSION['user_id']) && $_SESSION['role'] == 1) 
     {
-        if(isset($_GET['delete_category']) && isset($_SESSION['user_id']) && $_SESSION['role'] === 1)
+        if(isset($_GET['delete_category']) && isset($_SESSION['user_id']) && $_SESSION['role'] == 1)
         {
             $category_id = $_GET['delete_category'];
             $post_count = $database->selectPostsByCategory([$category_id]);

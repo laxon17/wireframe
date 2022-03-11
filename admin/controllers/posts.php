@@ -5,7 +5,7 @@
 
     session_start();
 
-    if(empty($_SESSION['user_id']) || $_SESSION['role'] !== 1) Utilities::redirect('/index');
+    if(empty($_SESSION['user_id']) || $_SESSION['role'] != 1) Utilities::redirect('/index');
     else if($access_method === 'POST')
     {
         $str_json = file_get_contents('php://input');

@@ -3,7 +3,7 @@
     $access_method = Request::getMethod();
     session_start();
 
-    if($access_method !== 'POST' || !isset($_SESSION['user_id']) || $_SESSION['role'] !== 1) Utilities::redirect('/index');
+    if($access_method !== 'POST' || !isset($_SESSION['user_id']) || $_SESSION['role'] != 1) Utilities::redirect('/index');
     else 
     {
         $question = $_POST['add_question'];

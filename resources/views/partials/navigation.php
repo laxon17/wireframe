@@ -23,7 +23,7 @@
         <?php endfor ?>  
       </ul>
       <ul class="right hide-on-med-and-down">
-        <?php if(isset($_SESSION['user_id']) && $_SESSION['role'] === 1) : ?>
+        <?php if(isset($_SESSION['user_id']) && $_SESSION['role'] == 1) : ?>
           <li>
             <a href="<?= $links[4]->LinkPath ?>"><?= $links[4]->LinkName ?></a>
           </li>
@@ -70,7 +70,7 @@
     </li>
   <?php endfor ?>
 
-  <?php if(isset($_SESSION['user_id']) && $_SESSION['role'] === 1) : ?>
+  <?php if(isset($_SESSION['user_id']) && $_SESSION['role'] == 1) : ?>
     <li>
       <a href="<?= $links[4]->LinkPath ?>"><?= $links[4]->LinkName ?></a>
     </li>

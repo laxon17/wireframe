@@ -72,7 +72,7 @@
                     'CategoryId' => (int) $category 
                 ]);
             }
-            die($_FILES);
+
             Utilities::redirect('/profile?username=' . $_SESSION['username']);
         }
     }

@@ -2,7 +2,7 @@
     <?php require 'resources/views/partials/navigation.php' ?>
     <div class="container center pt-5 mb-3">
         <h4 class="responsive-text">
-            <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] === $user->UserId) : ?>
+            <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $user->UserId) : ?>
                 <?= 'Hello, ' . $user->FirstName . '!' ?>
             <?php else : ?>
                 <?= $user->FirstName . ' ' . $user->LastName ?>
@@ -22,7 +22,7 @@
                 <b>Mail:</b> <?= $user->UserMail ?> <br><br>
                 <b>Joined:</b> <?= $user->CreatedAt ?> <br><br>
                 <b>Role: </b> <?= $role_name->RoleName ?> <br><br>
-                <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] === $user->UserId) : ?>
+                <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $user->UserId) : ?>
                     <b>Change profile picture:</b>
                     <form action="/update-image" method="POST" enctype="multipart/form-data">
                         <div class="row">
@@ -48,18 +48,18 @@
         </div>
         
         <div class="row mb-3">
-            <?php if($_SESSION['user_id'] === $user->UserId) : ?>
+            <?php if($_SESSION['user_id'] == $user->UserId) : ?>
                 <div class="col center mb-1 push-l1">
                     <a class="btn btn-large waves-effect waves-light blue lighten-1 <?= empty($posts) ? 'pulse' : '' ?>" href="/create-post">
                         <i class="material-icons">add</i>
                     </a>
                 </div>
             <?php endif ?>
-            <div class="col s12 <?= $_SESSION['user_id'] === $user->UserId ? 'l9 offset-l1' : 'l8 offset-l2' ?>">
-                <h5 class="responsive-text"><?= $_SESSION['user_id'] === $user->UserId ? 'My' : $user->FirstName . '\'s' ?> posts</h5>
+            <div class="col s12 <?= $_SESSION['user_id'] == $user->UserId ? 'l9 offset-l1' : 'l8 offset-l2' ?>">
+                <h5 class="responsive-text"><?= $_SESSION['user_id'] == $user->UserId ? 'My' : $user->FirstName . '\'s' ?> posts</h5>
                 <div class="divider mb-3"></div>
                 <?php if(empty($posts)) : ?>
-                    <?php if($_SESSION['user_id'] === $user->UserId) : ?>
+                    <?php if($_SESSION['user_id'] == $user->UserId) : ?>
                         <p class="pl-1">You haven't posted anything yet!</p>
                     <?php else : ?>
                         <p class="pl-1"><?= $user->FirstName ?> hasn't posted anything yet!</p>
@@ -70,7 +70,7 @@
                             <tr>
                                 <td class="center">PostId</td>
                                 <td class="center">Post title</td>
-                                <?php if($_SESSION['user_id'] === $user->UserId) : ?>
+                                <?php if($_SESSION['user_id'] == $user->UserId) : ?>
                                     <td class="center">Edit</td>
                                     <td class="center">Remove</td>
                                 <?php endif ?>
@@ -83,7 +83,7 @@
                                 <td>
                                     <a href="/view-post?id=<?= $post->PostId ?>"><?= $post->PostTitle ?></a>
                                 </td>
-                                <?php if($_SESSION['user_id'] === $user->UserId) : ?>
+                                <?php if($_SESSION['user_id'] == $user->UserId) : ?>
                                     <td>
                                         <a href="/edit-post?id=<?= $post->PostId ?>">
                                             <i class="material-icons yellow-text">edit</i>

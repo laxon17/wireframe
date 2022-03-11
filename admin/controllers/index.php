@@ -5,7 +5,7 @@
 
     session_start();
 
-    if($access_method !== 'GET' || empty($_SESSION['user_id']) || $_SESSION['role'] !== 1) Utilities::redirect('/index');
+    if($access_method !== 'GET' || empty($_SESSION['user_id']) || $_SESSION['role'] != 1) Utilities::redirect('/index');
     else 
     {
         $posts_count = $database->getRecordCount('Posts');
