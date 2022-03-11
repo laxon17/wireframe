@@ -2,26 +2,26 @@
 <rss version="2.0">
     <channel>
         <title>WireFrame</title>
-        <link>/index</link>
+        <link>http://wireframe.codeus.me/index</link>
         <description>News</description>
             <item>
                 <title>Laxon wrote about Laravel!</title>
-                <link>/posts</link>
+                <link>http://wireframe.codeus.me/posts</link>
                 <description>Laxon made an article about Routing, check It out!</description>
             </item>
             <item>
                 <title>News about CSS</title>
-                <link>/posts</link>
+                <link>http://wireframe.codeus.me/posts</link>
                 <description>Ever wondered how animations work in css?</description>
             </item>
             <item>
                 <title>What's new in C# 10?</title>
-                <link>/posts</link>
+                <link>http://wireframe.codeus.me/posts</link>
                 <description>Luka wrote about new features in C# 10 and .NET, check it out!</description>
             </item>
             <item>
                 <title>Do you love Angular JS?</title>
-                <link>/posts</link>
+                <link>http://wireframe.codeus.me/posts</link>
                 <description>Check Katarina's post about Angular's MVC Architecture now!</description>
             </item>
     </channel>

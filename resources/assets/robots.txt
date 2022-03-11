@@ -1,6 +1,6 @@
 User-agent: *
 
-Disallow: private
-Disallow: admin
+Disallow: /private/*
+Disallow: /admin/*
 
-Sitemap: assets/sitemap.xml
+Sitemap: http://wireframe.codeus.me/resources/assets/sitemap.xml
