@@ -11,7 +11,7 @@
         $post_body = $_POST['post_body'];
         $image_path = $_FILES['image_path']['name'];
         $image_name = uniqid() . '_' . time();
-        $target = '/var/www/wireframe.codeus.me/public/img/covers/' . $image_name;
+        $target = 'public/img/covers/' . $image_name;
         $post_category = []; 
         $values = [];
         $errors = [];     
@@ -64,7 +64,7 @@
             ]);
 
             move_uploaded_file($_FILES['image_path']['tmp_name'], $target);
-            die(var_dump($_FILES));
+
             foreach($post_category as $category) 
             {
                 $database->insertRecords('PostCategory', [
@@ -72,7 +72,7 @@
                     'CategoryId' => (int) $category 
                 ]);
             }
-
+            die($_FILES);
             Utilities::redirect('/profile?username=' . $_SESSION['username']);
         }
     }
