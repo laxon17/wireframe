@@ -190,7 +190,7 @@
                 'SELECT Users.UserId, CONCAT(Users.FirstName , " " , Users.LastName) AS \'FullName\', Users.UserName, Users.ProfilePicture, Comments.CommentId, Comments.ParentId, Comments.CommentBody, Comments.PostId, Comments.CreatedAt
                 FROM Users 
                 INNER JOIN Comments ON Users.UserId = Comments.UserId
-                WHERE Comments.PostId = :post AND Comments.ParentId = :comment
+                WHERE Comments.PostId = 10 AND Comments.ParentId = 6
                 GROUP BY Comments.CommentId'
             ); 
 
