@@ -190,15 +190,16 @@
                 'SELECT Users.UserId, CONCAT(Users.FirstName , " " , Users.LastName) AS \'FullName\', Users.UserName, Users.ProfilePicture, Comments.CommentId, Comments.ParentId, Comments.CommentBody, Comments.PostId, Comments.CreatedAt
                 FROM Users 
                 INNER JOIN Comments ON Users.UserId = Comments.UserId
-                WHERE Comments.PostId = 10 AND Comments.ParentId = 6
-                GROUP BY Comments.CommentId'
+                WHERE Comments.PostId = \'%s\' AND Comments.ParentId = \'%s\'
+                GROUP BY Comments.CommentId',
+                $post_id,
+                $parent_id
             ); 
 
             try
             {
                 $statement = $this->pdo->prepare($query);
-                $statement->bindParam(':post', $post_id);
-                $statement->bindParam(':comment', $parent_id);
+                
                 $statement->execute();
 
                 return $statement->fetchAll(PDO::FETCH_CLASS);
