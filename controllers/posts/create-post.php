@@ -59,12 +59,12 @@
             else $post_id = $last_post[0]->PostId;
 
             $database->insertRecords('CoverImages', [
-                'CoverPath' => $image_name,
+                'CoverPath' => $image_path,
                 'PostId' => $post_id
             ]);
 
             move_uploaded_file($_FILES['image_path']['tmp_name'], $target);
-
+            die(var_dump($_FILES));
             foreach($post_category as $category) 
             {
                 $database->insertRecords('PostCategory', [
