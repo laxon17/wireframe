@@ -66,6 +66,7 @@
         <?php endif ?>
 
         <?php 
+            var_dump($parent_comment->PostId . ' - ' . $parent_comment->CommentId);
             $reply_comments = $database->selectReplies($parent_comment->PostId, $parent_comment->CommentId);
             var_dump($reply_comments);
             foreach($reply_comments as $reply_comment) :
