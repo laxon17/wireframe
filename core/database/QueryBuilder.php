@@ -195,11 +195,11 @@
                 $post_id,
                 $parent_id
             ); 
-
+            var_dump($query);
             try
             {
                 $statement = $this->pdo->prepare($query);
-                
+
                 $statement->execute();
 
                 return $statement->fetchAll(PDO::FETCH_CLASS);
