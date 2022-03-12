@@ -6,9 +6,8 @@
     $post = $database->selectFilteredRecord('Posts', 'PostId', $_GET['id']);
 
     session_start();
-    
-    if(empty($_SESSION['user_id']) || $_SESSION['user_id'] != $post->UserId) Utilities::redirect('/index');
-    else if($access_method === 'POST') 
+
+    if($access_method === 'POST') 
     {
         $post_title = $_POST['post_title'];
         $post_body = $_POST['post_body'];
@@ -73,6 +72,7 @@
             Utilities::redirect('/view-post?id=' . $post_id);
         }
     }
+    else if(empty($_SESSION['user_id']) || $_SESSION['user_id'] != $post->UserId) Utilities::redirect('/index');
     else
     {
         $post = $database->selectFilteredRecord('Posts', 'PostId', $_GET['id']);
