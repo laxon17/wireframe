@@ -4,7 +4,10 @@
     $access_method = Request::getMethod();
     $categories = $database->selectRecords('Categories');
     $post = $database->selectFilteredRecord('Posts', 'UserId', $_GET['id']);
+
     session_start();
+    Utilities::dieDump($_SESSION['user_id'] . ' ' . $post->UserId);
+    
     if(empty($_SESSION['user_id']) || $_SESSION['user_id'] != $post->UserId) Utilities::redirect('/index');
     else if($access_method === 'POST') 
     {
