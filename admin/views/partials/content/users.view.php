@@ -1,4 +1,4 @@
-<table class="highlight striped centered">
+<table class="highlight striped centered responsive-table">
     <thead>
         <tr>
             <td class="center">UserId</td>
