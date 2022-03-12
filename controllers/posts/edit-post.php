@@ -4,7 +4,7 @@
     $access_method = Request::getMethod();
     $categories = $database->selectRecords('Categories');
     $post = $database->selectFilteredRecord('Posts', 'UserId', $_GET['id']);
-        
+    session_start();
     if($access_method === 'POST') 
     {
         $post_title = $_POST['post_title'];
