@@ -4,7 +4,7 @@
     $access_method = Request::getMethod();
     $categories = $database->selectRecords('Categories');
 
-    if($access_method !== 'POST') require 'resources/views/posts/create-post.view.php';  
+    if($access_method !== 'POST' && isset($_SESSION['user_id'])) require 'resources/views/posts/create-post.view.php';  
     else
     {
         $post_title = $_POST['post_title'];

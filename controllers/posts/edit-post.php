@@ -3,6 +3,7 @@
     $page_title = 'Edit post';
     $access_method = Request::getMethod();
     $categories = $database->selectRecords('Categories');
+    $post = $database->selectFilteredRecord('Posts', 'UserId', $_GET['id']);
         
     if($access_method === 'POST') 
     {
@@ -69,6 +70,7 @@
             Utilities::redirect('/view-post?id=' . $post_id);
         }
     }
+    else if(empty($_SESSION['user_id']) || $_SESSION['user_id'] != $post->UserId) Utilities::redirect('/index');
     else
     {
         $post = $database->selectFilteredRecord('Posts', 'PostId', $_GET['id']);
