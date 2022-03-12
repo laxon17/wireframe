@@ -13,5 +13,5 @@
 
         $database->updateAnswer($answer, $poll_id, $user_id);
 
-        Utilities::redirect('/profile?username=' . $user->Username);
+        Utilities::redirect('/survey?user_id=' . $user_id);
     }
