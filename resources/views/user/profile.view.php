@@ -81,7 +81,11 @@
                             <tr>
                                 <td><?= ++$index ?></td>
                                 <td>
-                                    <a href="/view-post?id=<?= $post->PostId ?>"><?= $post->PostTitle ?></a>
+                                    <?php if($post->Approved) : ?>
+                                        <a href="/view-post?id=<?= $post->PostId ?>"><?= $post->PostTitle ?></a>
+                                    <?php else : ?>
+                                        <p class="grey-text text-lighten-1"><?= $post->PostTitle ?> - waiting for approval</p>
+                                    <?php endif ?>
                                 </td>
                                 <?php if($_SESSION['user_id'] == $user->UserId) : ?>
                                     <td>
