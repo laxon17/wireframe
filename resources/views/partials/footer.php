@@ -36,7 +36,7 @@
                             <div class="col s12 m6 l6 center-align">
                                 <div class="row">
                                     <h2 class="flow-text">CONNECT WITH US</h2>
-                                    <a href="resources/assets/feed.rss"><img src="https://img.icons8.com/color/48/000000/rss.png"/></a>
+                                    <a target="_blank" href="resources/assets/feed.rss"><img src="https://img.icons8.com/color/48/000000/rss.png"/></a>
                                     <a target="_blank" href="https://www.facebook.com"><img src="https://img.icons8.com/color/48/000000/facebook.png"/></a>
                                     <a target="_blank" href="https://www.twitter.com"><img src="https://img.icons8.com/color/48/000000/twitter.png"/></a>
                                     <a target="_blank" href="https://www.linkedin.com"><img src="https://img.icons8.com/color/48/000000/linkedin.png"/></a>
