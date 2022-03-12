@@ -6,7 +6,7 @@
 
     $categories = $database->selectRecords('Categories');
 
-    if(!isset($_SESSION['user_id'])) Utilities::redirect('/index');
+    if(empty($_SESSION['user_id'])) Utilities::redirect('/index');
     else if($access_method !== 'POST') require 'resources/views/posts/create-post.view.php';  
     else
     {
