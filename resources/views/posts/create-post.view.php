@@ -68,4 +68,7 @@
             </div>
         </div>
     </div>
+    <script>
+        CKEDITOR.replace('textarea1')
+    </script>
 <?php require 'resources/views/partials/footer.php' ?>
