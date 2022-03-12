@@ -1,4 +1,6 @@
 <?php
+    $page_title =  $post->PostTitle;
+
     $post_id = $_GET['id'];
     $post = $database->selectFilteredRecord('Posts', 'PostId', $post_id);
     $cover = $database->selectFilteredRecord('CoverImages', 'PostId', $post_id); 
@@ -7,6 +9,5 @@
 
     $comments = $database->selectComments($_GET['id']);
 
-    $page_title =  $post->PostTitle;
-
-    require 'resources/views/posts/view-post.view.php';
+    if($post->Approved) require 'resources/views/posts/view-post.view.php';
+    else Utilities::redirect('/index'); 
