@@ -1,11 +1,13 @@
 <?php
 
     $page_title = 'Create post';
+
     $access_method = Request::getMethod();
+
     $categories = $database->selectRecords('Categories');
 
-    if($access_method !== 'POST') require 'resources/views/posts/create-post.view.php';  
-    else if(empty($_SESSION['user_id'])) Utilities::redirect('/index');
+    if(!isset($_SESSION['user_id'])) Utilities::redirect('/index');
+    else if($access_method !== 'POST') require 'resources/views/posts/create-post.view.php';  
     else
     {
         $post_title = $_POST['post_title'];

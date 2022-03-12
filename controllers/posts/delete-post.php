@@ -4,8 +4,6 @@
 
     $access_method = Request::getMethod();
 
-    
-
     if($access_method !== 'GET') Utilities::Redirect('/index');
     else 
     {
