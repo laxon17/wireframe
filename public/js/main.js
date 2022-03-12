@@ -1,6 +1,7 @@
     let urlPath = window.location.pathname
 
     if(urlPath === '/register') validateRegistration()
+    if(urlPath === '/contact') validateContact()
     if(urlPath === '/login') validateLogin()
     if(urlPath === '/reset') resetPasswordRequest()
     if(urlPath === '/posts') searchAjax()
@@ -120,32 +121,48 @@
 
 // END OF VALIDATE LOGIN FORM
 
-// VALIDATE PASSWORD REQUEST 
+// CONTACT MESSAGE 
 
-    function resetPasswordRequest() {
+    function validateContact() {
         const userMailRegex = /^[a-zA-Z0-9]([a-z]|[0-9])+\.?-?_?([a-z]|[0-9])*\.?([a-z]|[0-9])*\@[a-z]{3,}\.([a-z]{2,4}\.)?([a-z]{2,4})$/
 
-        const passwordResetForm = document.getElementById('resetForm')
-        const mailField = document.getElementById('userMail')
+        const mailField = document.getElementById('contactMail')
+        const messageBody = document.getElementById('messageBody')
+        const contactForm = document.getElementById('contactForm')
 
-        passwordResetForm.addEventListener('submit', (event) => {
-            if(!resetBtn()) {
-                checkField(mailField, 'E-mail', userMailRegex)
+        contactForm.addEventListener('submit', (event) => {
+            if(!contactButton()) {
                 event.preventDefault()
+                checkField(mailField, 'E-mail', userMailRegex) 
+                checkBody()
             }
         })
 
-        function resetBtn() {
-            if(checkField(mailField, 'E-mail', userMailRegex)) return 1
-            return 0
-        } 
+        function checkBody() {
+            if(messageBody.value == 0) {
+                messageBody.nextElementSibling.nextElementSibling.innerText = 'Message can\'t be empty'
+                return 1
+            }
+            else {
+                messageBody.nextElementSibling.nextElementSibling.innerText = ''
+                return 0
+            }
+        }
 
-        addListenerForButton(mailField, resetBtn, 'keyup')
-        addListenerForField(mailField, 'E-mail', userMailRegex, 'blur')
+        function contactButton() {
+            if(
+                checkField(mailField, 'E-mail', userMailRegex) && 
+                checkBody()
+            )  return 1
+            return 0
+        }
+
         addListenerForField(mailField, 'E-mail', userMailRegex, 'keyup')
+        addListenerForField(mailField, 'E-mail', userMailRegex, 'blur')
+        addListenerForButton(mailField, contactButton, 'keyup')
     }
 
-// END OF VALIDATE PASSWORD REQUEST 
+// END OF CONTACT MESSAGE 
 
 // FORM VALIDATION METHODS
 

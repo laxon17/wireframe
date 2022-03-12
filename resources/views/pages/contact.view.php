@@ -19,7 +19,7 @@
     <div class="container">
         <div class="container">
             <div class="container center">
-                <form action="/contact" method="POST" id="loginForm">
+                <form action="/contact" method="POST" id="contactForm">
                     <div class="row">
                         <div class="col l6 pl-0">
                             <div class="input-field mb-2">
@@ -37,7 +37,7 @@
                         <div class="col l6 pr-0">
                             <div class="input-field mb-2">
                                 <input id="messageTitle" name="message_title" type="text" />
-                                <label for="messageTitle">Message Title</label>
+                                <label for="messageTitle">Message Title (optional)</label>
                             </div>  
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                                 <?= $errors['message'] ?>
                             </span>
                         <?php else : ?>
-                            <span></span>
+                            <span class="red-text"></span>
                         <?php endif ?>
                     </div>
                     <div class="row mb-3 center">
