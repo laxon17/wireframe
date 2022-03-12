@@ -1,4 +1,4 @@
-<table class="highlight centered mb-3">
+<table class="highlight centered mb-3 responsive-table">
         <thead>
             <tr>
                 <td class="center">MessageId</td>
