@@ -5,7 +5,7 @@
     $access_method = Request::getMethod();
 
     $categories = $database->selectRecords('Categories');
-
+    Utilities::dieDump($_SESSION['user_id']);
     if(empty($_SESSION['user_id'])) Utilities::redirect('/index');
     else if($access_method !== 'POST') require 'resources/views/posts/create-post.view.php';  
     else
