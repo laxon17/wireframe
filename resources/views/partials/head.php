@@ -1,5 +1,9 @@
 <?php 
-    session_start() 
+    session_start();
+
+    $file = fopen('private/visitors.txt', 'a+');
+    $string_to_write = $_SERVER['REMOTE_ADDR']. "\t" . $_SERVER['REQUEST_URI'] . "\t" . $_SERVER['REQUEST_METHOD'] . "\t" . $_SERVER['REQUEST_TIME']. "\n"; 
+    fwrite($file, $string_to_write);
 ?>
 <!DOCTYPE html>
     <html lang="en">

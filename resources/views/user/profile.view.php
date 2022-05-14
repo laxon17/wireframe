@@ -18,10 +18,10 @@
                 </div>
             </div>
             <div class="col s12 m10 l6 offset-m1 offset-l2 mb-3" id="userBio">
-                <b>Username:</b> <?= $user->Username ?> <br><br>
-                <b>Mail:</b> <?= $user->UserMail ?> <br><br>
-                <b>Joined:</b> <?= $user->CreatedAt ?> <br><br>
-                <b>Role: </b> <?= $role_name->RoleName ?> <br><br>
+                <b>Username:</b> <?= $user->Username ?> <br /><br />
+                <b>Mail:</b> <?= $user->UserMail ?> <br /><br />
+                <b>Joined:</b> <?= $user->CreatedAt ?> <br /><br />
+                <b>Role: </b> <?= $role_name->RoleName ?> <br /><br />
                 <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $user->UserId) : ?>
                     <b>Change profile picture:</b>
                     <form action="/update-image" method="POST" enctype="multipart/form-data">

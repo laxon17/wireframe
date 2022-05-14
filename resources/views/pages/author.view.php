@@ -26,7 +26,8 @@
                         where I am majoring in Web programming.
                         <br />
                         <br />
-                        <a target="_blank" href="https://laxon17.github.io/portfolio" class="btn btn-large blue lighten-1 waves-effect waves-light">More about me</a>
+                        <a target="_blank" href="https://laxon17.github.io/portfolio" class="btn btn-large blue lighten-1 waves-effect waves-light mb-1">More about me</a>
+                        <a target="_blank" href="/export" class="btn btn-large blue lighten-1 waves-effect waves-light mb-1">Export to .doc</a>
                     </div>
                 </div>
             </div>

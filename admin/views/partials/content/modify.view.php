@@ -5,8 +5,11 @@
 <?php endif ?>
 <h4 class="mb-3">Add or remove categories</h4>
 <div class="row">
+    <a href="/export-categories" class="btn blue lighten-1">
+        Export to .xls
+    </a>
     <button id="addCategoryBtn" class="btn blue lighten-1">
-        <i class="material-icons">add</i> 
+        <i class="material-icons">add</i>
     </button>
     <form action="/dashboard/modify" method="POST">
         <div id="addCategoryField" class="input-field col l6 right <?= empty($_GET['error']) ? 'hide' : '' ?>">

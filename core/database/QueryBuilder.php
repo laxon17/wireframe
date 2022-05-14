@@ -250,7 +250,7 @@
 
             catch (PDOException $exception) 
             {
-                
+                Utilities::dieDump($exception->getMessage());
             }
         }
 

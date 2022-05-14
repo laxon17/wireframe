@@ -2,13 +2,16 @@
 
     $page_title = 'Profile';
 
-    if(empty($_GET['username'])) Utilities::redirect('/index');
-    else 
+    if(empty($_GET['username']))
     {
-        $user = $database->selectFilteredRecord('Users', 'UserName', $_GET['username']);
-        if(empty($user)) Utilities::redirect('/');
-        $role_name = $database->selectFilteredRecord('Roles', 'RoleId', $user->RoleId);
-        $posts = $database->selectFilteredRecords('Posts', 'UserId', $user->UserId);
-
-        require 'resources/views/user/profile.view.php';
+        Utilities::redirect('/index');
+        exit();
     }
+
+    $user = $database->selectFilteredRecord('Users', 'UserName', $_GET['username']);
+    
+    if(empty($user)) Utilities::redirect('/');
+    $role_name = $database->selectFilteredRecord('Roles', 'RoleId', $user->RoleId);
+    $posts = $database->selectFilteredRecords('Posts', 'UserId', $user->UserId);
+
+    require 'resources/views/user/profile.view.php';

@@ -4,8 +4,8 @@
     [
         'host' => 'localhost',
         'dbname' => 'wireframe',
-        'username' => 'lakson',
-        'password' => 'Lakson123',
+        'username' => 'root',
+        'password' => 'Laxon#1702.',
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]

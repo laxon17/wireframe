@@ -4,7 +4,7 @@
     if(urlPath === '/contact') validateContact()
     if(urlPath === '/login') validateLogin()
     if(urlPath === '/reset') resetPasswordRequest()
-    if(urlPath === '/posts') searchAjax()
+    if(urlPath === '/posts') postsPage()
     if(urlPath === '/dashboard/modify') categoryModify()
     if(urlPath === '/dashboard/surveys') addQuestion()
 
@@ -130,12 +130,11 @@
         const messageBody = document.getElementById('messageBody')
         const contactForm = document.getElementById('contactForm')
 
-        contactForm.addEventListener('submit', (event) => {
-            if(!contactButton()) {
-                event.preventDefault()
-                checkField(mailField, 'E-mail', userMailRegex) 
-                checkBody()
-            }
+        contactForm.addEventListener('submit', event => {
+            if(contactButton())
+            event.preventDefault()
+            checkField(mailField, 'E-mail', userMailRegex) 
+            checkBody()
         })
 
         function checkBody() {
@@ -301,50 +300,133 @@
 // END OF REPLY
 
 // AJAX FOR WRITING DATA FROM DATABASE
-    
-    function searchAjax() {
-        document.getElementById('searchPosts').addEventListener('keyup', searchForPosts)
-        const postsContainer = document.getElementById('postContainer')
-        document.addEventListener('DOMContentLoaded', loadPosts)
 
-        async function searchForPosts(event) {        
-            let query = event.target.value
-            let postLink = ''
-
-            let response = (await fetch('/search?query=' + query)).json()
-            response.then(posts => {
-                for(let post of posts) {
-                    postLink += `
-                        <tr>
-                            <td class="post-list">
-                                <a href="/view-post?id=${post.PostId}">
-                                    ${post.PostTitle}
-                                </a>
-                            </td>
-                        </tr>
-                    `
+    function postsPage() {
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchPosts(writePosts)
+        })
+        
+        function fetchPosts(callback, page) {
+            let xhr = new XMLHttpRequest()
+            
+            xhr.open('GET', '/posts-api', true)
+            xhr.onload = function() {
+                if(this.status === 200) {
+                    let trimmed = this.responseText.substring(this.responseText.indexOf('['), this.responseText.length)
+                    let data = JSON.parse(trimmed)
+                    callback(data, page)
                 }
-                postsContainer.innerHTML = postLink ? postLink : 'No posts found'
-            })  
+            }
+            xhr.send()
         }
 
-        async function loadPosts() {
-            let response = (await fetch('/posts')).json()
-            let postLink = ''
-            response.then(posts => {
-                for(let post of posts) {
-                    postLink += `
-                        <tr>
-                            <td class="post-list">
-                                <a href="/view-post?id=${post.PostId}">
-                                    ${post.PostTitle}
-                                </a>
-                            </td>
-                        </tr>
-                    ` 
-                }
-                postsContainer.innerHTML = postLink ? postLink : 'No posts found!' 
+        function paginatePosts(posts, page = 1) {
+            const paginationNumbers = document.getElementById('paginationContainer')
+            let perPage = 10
+            let numberOfPages = Math.ceil( posts.length / perPage)
+            let number = ''
+            let paginatedPosts = []
+            for(let i = 1; i <= numberOfPages; i++) number += `<li class="waves-effect"><span class="paginate-number blue-text text-lighten-1 p-1" data-number="${i}">${i}</span></li>`
+            paginationNumbers.innerHTML = number.length ? number : ''
+
+            document.querySelectorAll('.paginate-number').forEach(number => {
+                number.addEventListener('click', event => {
+                    let pageNumber = Number(event.target.dataset.number)
+                    paginateChanged(pageNumber)
+                })
             })
+
+            for(let i = (page - 1) * perPage; i < page * perPage; i++) { 
+                if(i >= posts.length) break
+                paginatedPosts.push(posts[i])
+            }
+
+            return paginatedPosts
+        }
+
+        document.getElementById('searchPosts').addEventListener('keyup', filterChanged)
+
+        function filterByCategory(posts) {
+            let checkedCategories = document.querySelectorAll('.categories:checked')
+            let categoriesIds = []
+
+            checkedCategories.forEach(category => categoriesIds.push(Number(category.value)))
+
+            if(!categoriesIds.length) return posts
+
+            let filterObject = { categories: categoriesIds }
+
+            let xhr = new XMLHttpRequest()
+            xhr.open('POST', '/posts-api', true)
+            xhr.onload = function() {
+                if(this.status === 200) {
+                    let trimmed = this.responseText.substring(this.responseText.indexOf('['), this.responseText.length)
+                    let data = JSON.parse(trimmed)
+                    writeFilteredPosts(data, 1)
+                }
+            }
+
+            xhr.send(JSON.stringify(filterObject))
+        }
+
+        document.querySelectorAll('.categories')
+            .forEach(category => category.addEventListener('change', filterChanged))
+
+        function searchPosts(posts) {
+            let keyword = document.getElementById('searchPosts').value.toLowerCase()
+            if(!keyword) return posts
+            return posts.filter(post => post.PostTitle.toLowerCase().indexOf(keyword) !== -1) 
+        }
+
+        function writeFilteredPosts(posts, page) {
+            const postsTable = document.getElementById('postContainer')
+            let postRow = ''
+
+            posts = posts.sort( (a,b) => a.CreatedAt < b.CreatedAt ? 1 : -1)
+            posts = searchPosts(posts)
+            posts = paginatePosts(posts, page)
+
+            for(let post of posts) {
+                postRow += `
+                    <tr>
+                        <td>
+                            <a href="/view-post?id=${post.PostId}">${post.PostTitle}</a>
+                        </td>
+                    </tr>
+                `
+            }
+
+            postsTable.innerHTML = postRow.length ? postRow : '<tr><td>No posts found</td></tr>'
+        }
+
+        function writePosts(posts, page) {
+            const postsTable = document.getElementById('postContainer')
+            let postRow = ''
+
+            posts = posts.sort( (a,b) => a.CreatedAt < b.CreatedAt ? 1 : -1)
+            posts = searchPosts(posts)
+            posts = filterByCategory(posts)
+            posts = paginatePosts(posts, page)
+
+            for(let post of posts) {
+                postRow += `
+                    <tr>
+                        <td>
+                            <a href="/view-post?id=${post.PostId}">${post.PostTitle}</a>
+                        </td>
+                    </tr>
+                `
+            }
+
+            postsTable.innerHTML = postRow.length ? postRow : '<tr><td>No posts found</td></tr>'
+        }
+
+        function paginateChanged(number) {
+            fetchPosts(writePosts, number)
+        }
+
+        function filterChanged() {
+            fetchPosts(writePosts, 1)
         }
     }
 
@@ -362,7 +444,7 @@
 
 // MATERIALIZE & JQUERY DEPENDENCIES LOAD
     $(document).ready(() => {
-        pageLoader()
+        //pageLoader()
         $('select').formSelect()
         $('.materialboxed').materialbox()
         $('.sidenav').sidenav()

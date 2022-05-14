@@ -4,6 +4,7 @@
     $router->GET('contact', 'controllers/contact');
     $router->GET('author', 'controllers/author');
     $router->GET('posts', 'controllers/posts/posts');
+    $router->GET('export', 'controllers/biography-export');
 
     $router->GET('profile', 'controllers/user/profile');
     $router->GET('survey', 'controllers/user/survey');
@@ -14,6 +15,9 @@
     $router->GET('logout', 'controllers/authentication/logout');
 
     $router->GET('verify', 'controllers/validations/verify');
+
+    $router->GET('posts-api', 'controllers/posts/posts-api');
+    $router->POST('posts-api', 'controllers/posts/posts-api');
 
     $router->GET('delete-post', 'controllers/posts/delete-post');
     $router->GET('create-post', 'controllers/posts/create-post');
@@ -37,6 +41,9 @@
     $router->GET('dashboard/messages', 'admin/controllers/messages');
     $router->GET('dashboard/surveys', 'admin/controllers/surveys');
     $router->GET('dashboard/modify', 'admin/controllers/modify');
+
+    $router->GET('log', 'private/export-log');
+    $router->GET('export-categories', 'admin/controllers/categories-export');
 
     $router->POST('dashboard/modify', 'admin/controllers/modify');
     $router->POST('dashboard/surveys', 'admin/controllers/surveys');

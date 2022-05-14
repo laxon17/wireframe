@@ -5,16 +5,17 @@
     $post_id = $_POST['post_id'];
     $parent_id = $_POST['parent_id'];
 
-    if(empty($comment)) Utilities::redirect('/view-post?id=' . $post_id . '&errors="Comment body can\'t be empty!"');
-    else
+    if(empty($comment)) 
     {
-        $database->insertRecords('Comments', [
-            'ParentId' => $parent_id,
-            'CommentBody' => htmlspecialchars($comment),
-            'PostId' => $post_id,
-            'UserId' => $user_id
-        ]);
-
-        Utilities::redirect('/view-post?id=' . $post_id);
+        Utilities::redirect('/view-post?id=' . $post_id . '&errors="Comment body can\'t be empty!"');
+        exit();
     }
-    
+
+    $database->insertRecords('Comments', [
+        'ParentId' => $parent_id,
+        'CommentBody' => htmlspecialchars($comment),
+        'PostId' => $post_id,
+        'UserId' => $user_id
+    ]);
+
+    Utilities::redirect('/view-post?id=' . $post_id);
