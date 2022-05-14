@@ -312,8 +312,7 @@
             xhr.open('GET', '/posts-api', true)
             xhr.onload = function() {
                 if(this.status === 200) {
-                    let trimmed = this.responseText.substring(this.responseText.indexOf('['), this.responseText.length)
-                    let data = JSON.parse(trimmed)
+                    let data = JSON.parse(this.responseText)
                     callback(data, page)
                 }
             }
@@ -360,8 +359,7 @@
             xhr.open('POST', '/posts-api', true)
             xhr.onload = function() {
                 if(this.status === 200) {
-                    let trimmed = this.responseText.substring(this.responseText.indexOf('['), this.responseText.length)
-                    let data = JSON.parse(trimmed)
+                    let data = JSON.parse(this.responseText)
                     writeFilteredPosts(data, 1)
                 }
             }
