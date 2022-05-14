@@ -97,3 +97,4 @@ IpAddress | URI | Method | Time
 127.0.0.1	/index	GET	1652534021
 127.0.0.1	/posts	GET	1652535058
 127.0.0.1	/index	GET	1652535986
+127.0.0.1	/posts	GET	1652536230
