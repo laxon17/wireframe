@@ -313,7 +313,6 @@
             xhr.onload = function() {
                 if(this.status === 200) {
                     let data = JSON.parse(this.responseText)
-                    console.log(data)
                     callback(data, page)
                 }
             }
@@ -443,7 +442,7 @@
 
 // MATERIALIZE & JQUERY DEPENDENCIES LOAD
     $(document).ready(() => {
-        //pageLoader()
+        pageLoader()
         $('select').formSelect()
         $('.materialboxed').materialbox()
         $('.sidenav').sidenav()

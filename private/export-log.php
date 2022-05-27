@@ -20,8 +20,7 @@
         array_push($visit, explode("\t", $log_content[$i]));
         foreach($visit as $information)
         {
-            $date_info = date('m-d-Y H:i:s', $information[3]);
-            $string_to_dispose .= "$information[0]\t\t$information[1]\t\t$information[2]\t\t$date_info\t\t\n";
+            $string_to_dispose .= "$information[0]\t\t$information[1]\t\t$information[2]\t\t$information[3]\t\t\n";
         }
     }
 
