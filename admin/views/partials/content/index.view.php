@@ -59,7 +59,7 @@
                         <td class="center"><?= $visitors[$i][0] ?></td>
                         <td class="center"><?= $visitors[$i][1] ?></td>
                         <td class="center"><?= $visitors[$i][2] ?></td>
-                        <td class="center"><?= date('d-m-Y H:i:s', $visitors[$i][3]) ?></td>
+                        <td class="center"><?= $visitors[$i][3] ?></td>
                     </tr>
                 <?php endfor ?>
             </tbody>

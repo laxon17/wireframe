@@ -103,3 +103,8 @@ IpAddress | URI | Method | Time
 127.0.0.1	/author	GET	1652536280
 127.0.0.1	/posts	GET	1652536281
 127.0.0.1	/contact	GET	1652536288
+127.0.0.1	/index	GET	28-05-2022 01:44:19
+127.0.0.1	/login	GET	28-05-2022 01:44:21
+127.0.0.1	/index	GET	28-05-2022 01:44:22
+127.0.0.1	/profile?username=laxon00	GET	28-05-2022 01:44:24
+127.0.0.1	/index	GET	28-05-2022 01:47:53
