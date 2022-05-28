@@ -2,7 +2,7 @@
     $links = $database->selectRecords('Navigation');
 ?>
 
-            <!-- <div class="preloader white">
+            <div class="preloader white">
                 <div class="preloader-wrapper active big">
                     <div class="spinner-layer spinner-blue-only">
                         <div class="circle-clipper left">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <?php if(Request::getUri() !== 'dashboard') : ?>
                 <footer class="page-footer grey darken-3">
                     <div class="container">
